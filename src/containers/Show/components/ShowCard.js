@@ -28,47 +28,33 @@ const ShowCard = (props) => {
             {!!show.Director && show.Director && (
               <H2 numberOfLines={1} style={styles.directors}>
                 Director:
-                <H2 style={styles.directors}>{show.Director}</H2>
+                <H2 style={styles.directors} bold>
+                  {show.Director}
+                </H2>
               </H2>
             )}
           </View>
-          {!!show.producers && show.producers.length > 0 && (
+          {!!show.Language && (
             <H2 style={styles.directors}>
-              تهیه کننده:
-              {show.producers.map((item, index) => {
-                return (
-                  <H2 style={styles.directors} key={index}>
-                    {item.name}
-                  </H2>
-                );
-              })}
+              Language:
+              <H2 style={styles.directors} bold>
+                {show.Language}
+              </H2>
             </H2>
           )}
           <View style={styles.rate}>{/*<Rate />*/}</View>
         </View>
       </View>
       <View style={styles.others}>
-        {show.Released && <Tag title={show.Released} />}
-        <Tag title={show.Runtime } />
-        {!!show.Genre && show.Genre.length > 0 && <Tag title={show.Genre} />}
+        {/*{show.Released && <Tag title={show.Released} />}*/}
+        {/*<Tag title={show.Runtime} />*/}
+        {show.Genre &&
+          show.Genre.split(',')
+            .slice(0, 3)
+            .map((genre) => <Tag title={genre} />)}
       </View>
-      <TouchableOpacity
-        onPress={() => {
-          props.toggleView();
-        }}
-        style={[
-          styles.about,
-          props.activeView === 'about' ? {backgroundColor: '#FBCD35'} : {},
-        ]}>
-        {props.activeView === 'schedule' && (
-          <View style={styles.toggleButton}>
-            <H1 style={styles.buyButtonText}>درباره این فیلم</H1>
-          </View>
-        )}
-        {props.activeView === 'about' && (
-          <H1 style={styles.aboutButtonText}>خرید بلیت</H1>
-        )}
-      </TouchableOpacity>
+
+
     </View>
   );
 

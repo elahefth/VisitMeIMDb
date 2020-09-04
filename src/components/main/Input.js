@@ -37,13 +37,13 @@ const Input = (props) => {
     if (value && value[0]) {
       if (/^[\u0600-\u06FF\s]$/.test(value[0])) {
         return {
-          textAlign: 'right',
+          textAlign: 'left',
         };
       }
     } else if (props.placeholder && props.placeholder[0]) {
       if (/^[\u0600-\u06FF\s]$/.test(props.placeholder[0])) {
         return {
-          textAlign: 'right',
+          textAlign: 'left',
         };
       }
     }
