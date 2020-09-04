@@ -13,7 +13,7 @@ export default class App extends React.Component {
     super(props);
 
     if (!I18nManager.isRTL) {
-      I18nManager.forceRTL(true);
+      I18nManager.forceRTL(false);
       RNRestart.Restart();
     }
   }

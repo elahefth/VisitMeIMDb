@@ -17,10 +17,13 @@ export default function TabNavigator(props) {
   return (
     <Tab.Navigator
       tabBarOptions={{
-        // activeTintColor: '#FBCD35',
-        // inactiveTintColor: '#676767',
+        safeAreaInset: {
+          top: 'always',
+        },
+        activeTintColor: '#f8f8f8',
+        inactiveTintColor: '#676767',
         style: {
-          backgroundColor: '#FFFFFF',
+          backgroundColor: '#181818',
           borderTopWidth: 0.25,
           borderTopColor: '#605F60',
           paddingTop: 10,
@@ -35,7 +38,7 @@ export default function TabNavigator(props) {
         name="Home"
         component={HomeNavigator}
         options={{
-          tabBarLabel: i18n.t('navigation.tabBar.home'),
+          tabBarLabel: i18n.t('navigation.home'),
           tabBarIcon: ({focused}) =>
             focused ? (
               <HomeActive width={22} height={22} />
@@ -48,7 +51,7 @@ export default function TabNavigator(props) {
         name="SearchNavigator"
         component={SearchNavigator}
         options={{
-          tabBarLabel: i18n.t('navigation.tabBar.profile'),
+          tabBarLabel: i18n.t('navigation.search'),
           tabBarIcon: ({focused}) =>
             focused ? (
               <ProfileActive width={22} height={22} />

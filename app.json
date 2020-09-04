@@ -1,4 +1,10 @@
 {
   "name": "VisitMeIMDb",
-  "displayName": "VisitMeIMDb"
+  "displayName": "VisitMeIMDb",
+  "env": "dev",
+  "domain": {
+    "dev": "http://www.omdbapi.com",
+    "production": "http://www.omdbapi.com"
+  },
+  "apiUrl": "/"
 }

@@ -3,7 +3,7 @@ import fa from '../assets/translations/fa';
 import en from '../assets/translations/en';
 
 i18n.fallbacks = true;
-i18n.locale = 'fa';
+i18n.locale = 'en';
 
 i18n.translations = {
   fa,

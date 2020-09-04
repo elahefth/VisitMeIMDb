@@ -1,6 +1,10 @@
 export default {
-  back: 'بازگشت',
-
-  home: 'خانه',
-  setting: 'تنظیمات',
+  tabBar: {
+    back: 'بازگشت',
+    home: 'خانه',
+    search: 'جستجو',
+    profile: 'کاربری',
+    news: 'اخبار',
+    cinemas: 'سینماها',
+  },
 };
