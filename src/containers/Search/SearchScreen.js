@@ -16,9 +16,10 @@ import ShowItem from '../Show/components/ShowItem';
 import {Input} from '../../components/main';
 
 import Search from '././../../assets/svgs/search.svg';
+import H2 from '../../components/main/H2';
 
 const SearchScreen = (props) => {
-  const [error, setError] = useState();
+  const [value, onChangeText] = useState('');
   const navigation = useNavigation();
 
   const {shows} = useSelector((state) => state.SearchReducer);
@@ -43,6 +44,11 @@ const SearchScreen = (props) => {
       <ScrollView>
         <SafeAreaView />
         <Input
+          onChangeText={(value) => {
+            onChangeText(value);
+            dispatch(SearchAction.searchFetch(value));
+          }}
+          value={value}
           placeholder={'Search movie titles'}
           style={styles.search}
           icon={
@@ -54,10 +60,19 @@ const SearchScreen = (props) => {
             />
           }
         />
+        {shows.length === 0 && (
+          <View>
+            <H2>no item</H2>
+          </View>
+        )}
 
-        {shows.map((show) => (
-          <ShowItem show={show} key={show.imdbID} />
-        ))}
+        <FlatList
+          data={shows}
+          keyExtractor={(show) => show.imdbID}
+          renderItem={({item}) => <ShowItem show={item} />}
+        />
+
+        {/*{!!shows.length && shows.length===0 && <View><H2>no item</H2></View>}*/}
       </ScrollView>
     </View>
   );

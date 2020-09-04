@@ -1,37 +1,33 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import i18n from 'i18n-js';
-import {StyleSheet, View, Text} from 'react-native';
+import React, {useEffect, useState, useCallback} from 'react';
+import {TouchableOpacity, View, StyleSheet, Text} from 'react-native';
+import {useSelector, useDispatch} from 'react-redux';
+import {useNavigation} from '@react-navigation/native';
+import variables from '../../components/main/_variables';
 
-// ------------------------------------ Component ------------------------------------
-class HomeScreen extends Component {
-  static navigationOptions = ({navigation}) => ({
-    title: i18n.t('navigation.home'),
-  });
+const Screen = (props) => {
+  const [error, setError] = useState();
+  const navigation = useNavigation();
 
-  state = {};
+  const products = useSelector((state) => state);
+  const dispatch = useDispatch();
 
-  render() {
-    return (
-      <View>
-        <Text>home</Text>
-      </View>
-    );
-  }
+  useEffect(() => {}, []);
 
-  // ------------------------------------ Methods ------------------------------------
-}
+  return (
+    <View style={styles.screen}>
+      <Text bold style={{color:'#f8f8f8',fontSize:18}}>coming soon</Text>
+    </View>
+  );
+};
 
-// ------------------------------------ Redux ------------------------------------
-const mapStateToProps = (store) => ({
-  // Ex. SettingReducer: store.SettingReducer,
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    backgroundColor: variables.irantic.mainBackground,
+    paddingTop: 20,
+    alignItems: 'center',
+    justifyContent:'center'
+  },
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  // Ex. billInquiry: language => dispatch(setLanguage(language)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
-
-// ------------------------------------ Styles ------------------------------------
-const styles = StyleSheet.create({});
+export default Screen;
