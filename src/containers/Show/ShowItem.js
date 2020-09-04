@@ -22,7 +22,7 @@ const ShowItem = (props) => {
     <TouchableOpacity onPress={() => {}} style={styles.container}>
       <View style={styles.main}>
         {!!show.image_url && (
-          <Image style={styles.image} source={{uri: show.image_url}} />
+          <Image style={styles.image} source={{uri: show.Poster}} />
         )}
         <View style={styles.view2}>
           <View
@@ -33,17 +33,17 @@ const ShowItem = (props) => {
             }}>
             <View>
               <View style={styles.titleContainer}>
-                <H1>{show.title}</H1>
+                <H1>{show.Title}</H1>
               </View>
               <View style={styles.details}>
                 <View style={styles.infoBox}>
                   <H2 style={styles.infoText}>{show.kind_translate}</H2>
                 </View>
-                {show.genres.length > 0 && (
-                  <View style={styles.infoBox2}>
-                    <H2 style={styles.infoText}>{show.genres[0].title}</H2>
-                  </View>
-                )}
+                {/*{show.genres.length > 0 && (*/}
+                {/*  <View style={styles.infoBox2}>*/}
+                {/*    <H2 style={styles.infoText}>{show.genres[0].title}</H2>*/}
+                {/*  </View>*/}
+                {/*)}*/}
 
                 <View style={styles.infoBox3}>
                   <H2 style={styles.infoText}>{show.duration} دقیقه </H2>

@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useCallback} from 'react';
-import {TouchableOpacity, View, StyleSheet, Text} from 'react-native';
+import {TouchableOpacity, View, StyleSheet, ScrollView} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 
@@ -8,8 +8,6 @@ import ShowItem from '../Show/ShowItem';
 import variables from '../../components/main/_variables';
 
 const Screen = (props) => {
-
-
   const [error, setError] = useState();
   const navigation = useNavigation();
 
@@ -20,12 +18,16 @@ const Screen = (props) => {
     dispatch(SearchAction.searchFetch('dark'));
   }, []);
 
-  console.log('__________________')
-  console.log(shows)
+  console.log('__________________');
+  console.log(shows);
 
   return (
     <View style={styles.screen}>
-      {/*{shows.map((show)=><ShowItem show={show}/>)}*/}
+      <ScrollView>
+        {shows.map((show) => (
+          <ShowItem show={show} />
+        ))}
+      </ScrollView>
     </View>
   );
 };
