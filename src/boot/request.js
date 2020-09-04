@@ -1,7 +1,7 @@
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
 
-import {apiUrl, env, domain} from '../../app.json';
+import {apiUrl, env, domain,apiKey} from '../../app.json';
 import {store} from './redux';
 import {Alert} from 'react-native';
 
@@ -14,11 +14,11 @@ class API {
     axiosRetry(axios, {retries: 3});
   }
 
-  get(route, params = null, token = store.getState().UserReducer.api_token) {
+  get(route, params = null, token = '') {
     if (params) {
-      let body = [];
+      let body = [`apiKey=${apiKey}`];
 
-      Object.keys(params).forEach(key => {
+      Object.keys(params).forEach((key) => {
         body.push(`${key}=${encodeURIComponent(params[key])}`);
       });
 
@@ -71,10 +71,10 @@ class API {
 
     return new Promise((resolve, reject) => {
       this.request(config)
-        .then(response => {
+        .then((response) => {
           resolve(response);
         })
-        .catch(error => {
+        .catch((error) => {
           if (
             method === 'POST' &&
             error.response === undefined &&

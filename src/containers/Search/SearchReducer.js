@@ -5,7 +5,7 @@ const initialState = {
 };
 
 const SearchReducer = (state = initialState, action = {}) => {
-  const {type, search, error} = action;
+  const {type, shows, error} = action;
 
   switch (type) {
     // ------------------------------------ search fetch ------------------------------------
@@ -18,7 +18,7 @@ const SearchReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isSearchFetching: false,
-        search,
+        shows,
       };
     case SEARCH_ERROR:
       return {

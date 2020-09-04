@@ -6,5 +6,6 @@
     "dev": "http://www.omdbapi.com",
     "production": "http://www.omdbapi.com"
   },
+  "apiKey": "7e09640f",
   "apiUrl": "/"
 }

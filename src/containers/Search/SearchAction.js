@@ -7,9 +7,9 @@ export const searchRequest = () => ({
 });
 
 export const SEARCH_RECEIVE = 'SEARCH_RECEIVE';
-export const searchReceive = (search) => ({
+export const searchReceive = (shows) => ({
   type: SEARCH_RECEIVE,
-  search,
+  shows,
 });
 
 export const SEARCH_ERROR = 'SEARCH_ERROR';
@@ -18,13 +18,13 @@ export const searchError = (error) => ({
   error,
 });
 
-export const searchFetch = () => {
+export const searchFetch = (search) => {
   return (dispatch) => {
     dispatch(searchRequest());
 
-    IMDbApi.search()
+    IMDbApi.search(search)
       .then((response) => {
-        dispatch(searchReceive(response.data.data));
+        dispatch(searchReceive(response.data.search));
       })
       .catch((error) => {
         dispatch(searchError(error.response.data));

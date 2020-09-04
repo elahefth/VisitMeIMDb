@@ -1,37 +1,40 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import i18n from 'i18n-js';
-import {StyleSheet, View, Text} from 'react-native';
+import React, {useEffect, useState, useCallback} from 'react';
+import {TouchableOpacity, View, StyleSheet, Text} from 'react-native';
+import {useSelector, useDispatch} from 'react-redux';
+import {useNavigation} from '@react-navigation/native';
 
-// ------------------------------------ Component ------------------------------------
-class SearchScreen extends Component {
-  static navigationOptions = ({navigation}) => ({
-    title: i18n.t('navigation.home'),
-  });
+import * as SearchAction from './SearchAction';
+import ShowItem from '../Show/ShowItem';
 
-  state = {};
+const Screen = (props) => {
 
-  render() {
-    return (
-      <View>
-        <Text>search</Text>
-      </View>
-    );
-  }
 
-  // ------------------------------------ Methods ------------------------------------
-}
+  const [error, setError] = useState();
+  const navigation = useNavigation();
 
-// ------------------------------------ Redux ------------------------------------
-const mapStateToProps = (store) => ({
-  // Ex. SettingReducer: store.SettingReducer,
+  const {shows} = useSelector((state) => state.SearchReducer);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(SearchAction.searchFetch());
+  }, []);
+
+  console.log('__________________')
+  console.log(shows)
+
+  return (
+    <View>
+      {/*{shows.map((show)=><ShowItem show={show}/>)}*/}
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  centered: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  // Ex. billInquiry: language => dispatch(setLanguage(language)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchScreen);
-
-// ------------------------------------ Styles ------------------------------------
-const styles = StyleSheet.create({});
+export default Screen;
