@@ -5,6 +5,6 @@ export class IMDbApi {
     return Api.get('', {s: search, page});
   }
   static show(id) {
-    return Api.get('', {id});
+    return Api.get('', {i: id});
   }
 }

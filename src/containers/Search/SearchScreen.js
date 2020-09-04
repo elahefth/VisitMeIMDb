@@ -4,10 +4,10 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 
 import * as SearchAction from './SearchAction';
-import ShowItem from '../Show/ShowItem';
 import variables from '../../components/main/_variables';
+import ShowItem from '../Show/components/ShowItem';
 
-const Screen = (props) => {
+const SearchScreen = (props) => {
   const [error, setError] = useState();
   const navigation = useNavigation();
 
@@ -25,7 +25,7 @@ const Screen = (props) => {
     <View style={styles.screen}>
       <ScrollView>
         {shows.map((show) => (
-          <ShowItem show={show} />
+          <ShowItem show={show} key={show.imdbID}/>
         ))}
       </ScrollView>
     </View>
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Screen;
+export default SearchScreen;

@@ -7,9 +7,10 @@ import {
   TouchableOpacity,
   Platform,
 } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
-import {H1, H2, variables} from '../../components/main';
+import {H1, H2, variables} from '../../../components/main';
 
 // ------------------------------------ Component ------------------------------------
 const ShowItem = (props) => {
@@ -19,10 +20,14 @@ const ShowItem = (props) => {
   const navigation = useNavigation();
   const {show} = props;
   return (
-    <TouchableOpacity onPress={() => {}} style={styles.container}>
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate('ShowScreen', {show: show});
+      }}
+      style={styles.container}>
       <View style={styles.main}>
-        {!!show.image_url && (
-          <Image style={styles.image} source={{uri: show.Poster}} />
+        {!!show.Poster && (
+          <FastImage style={styles.image} source={{uri: show.Poster}} />
         )}
         <View style={styles.view2}>
           <View
@@ -37,7 +42,7 @@ const ShowItem = (props) => {
               </View>
               <View style={styles.details}>
                 <View style={styles.infoBox}>
-                  <H2 style={styles.infoText}>{show.kind_translate}</H2>
+                  <H2 style={styles.infoText}>{show.Type}</H2>
                 </View>
                 {/*{show.genres.length > 0 && (*/}
                 {/*  <View style={styles.infoBox2}>*/}
@@ -46,7 +51,7 @@ const ShowItem = (props) => {
                 {/*)}*/}
 
                 <View style={styles.infoBox3}>
-                  <H2 style={styles.infoText}>{show.duration} دقیقه </H2>
+                  <H2 style={styles.infoText}>{show.Year} </H2>
                 </View>
               </View>
             </View>
@@ -83,7 +88,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: width / 3.75,
-    //height: width / 2.68,
+    height: width / 2.68,
     ...Platform.select({
       ios: {
         borderTopLeftRadius: 10,
@@ -109,8 +114,6 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   infoBox: {
-    borderRightColor: variables.irantic.darkMediumColor,
-    borderRightWidth: 1,
     paddingRight: 8,
   },
   infoBox2: {
