@@ -5,6 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 
 import * as SearchAction from './SearchAction';
 import ShowItem from '../Show/ShowItem';
+import variables from '../../components/main/_variables';
 
 const Screen = (props) => {
 
@@ -16,24 +17,25 @@ const Screen = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(SearchAction.searchFetch());
+    dispatch(SearchAction.searchFetch('dark'));
   }, []);
 
   console.log('__________________')
   console.log(shows)
 
   return (
-    <View>
+    <View style={styles.screen}>
       {/*{shows.map((show)=><ShowItem show={show}/>)}*/}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  centered: {
+  screen: {
     flex: 1,
+    backgroundColor: variables.irantic.mainBackground,
+    paddingTop: 20,
     alignItems: 'center',
-    justifyContent: 'center',
   },
 });
 

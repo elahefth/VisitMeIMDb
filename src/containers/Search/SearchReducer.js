@@ -1,7 +1,7 @@
 import {SEARCH_ERROR, SEARCH_RECEIVE, SEARCH_REQUEST} from './SearchAction';
 
 const initialState = {
-	search:''
+  shows: [],
 };
 
 const SearchReducer = (state = initialState, action = {}) => {
