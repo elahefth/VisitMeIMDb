@@ -20,6 +20,9 @@
 		8E4E1A45F54496F857192FAA /* libPods-VisitMeIMDb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3946475BA6E3C42249BE7865 /* libPods-VisitMeIMDb.a */; };
 		91ED34C8088B0718CA8DFC60 /* libPods-VisitMeIMDb-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A6E7E3D4EE07898D86B2DE /* libPods-VisitMeIMDb-tvOS.a */; };
 		CC013CB94406CD8FB2D0FB54 /* libPods-VisitMeIMDb-VisitMeIMDbTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2606C94B96BB0581318DE2 /* libPods-VisitMeIMDb-VisitMeIMDbTests.a */; };
+		4035E1189819426FA0278EB5 /* Shabnam-Bold-FD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8F0AFD05EEC41EB94D45C40 /* Shabnam-Bold-FD.ttf */; };
+		A0536ACC4CFC4A47A1B9486A /* Shabnam-FD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A2EFCA600324E9ABBF349AC /* Shabnam-FD.ttf */; };
+		98A526BB484F410CAE23CD66 /* Shabnam-Light-FD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CFCDBC8B42C4C5B8F987ED5 /* Shabnam-Light-FD.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		FA2606C94B96BB0581318DE2 /* libPods-VisitMeIMDb-VisitMeIMDbTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VisitMeIMDb-VisitMeIMDbTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE38AF77E6A8AB794BB443FC /* Pods-VisitMeIMDb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisitMeIMDb.debug.xcconfig"; path = "Target Support Files/Pods-VisitMeIMDb/Pods-VisitMeIMDb.debug.xcconfig"; sourceTree = "<group>"; };
 		FF1F609C4D8D783CE4882848 /* Pods-VisitMeIMDb-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisitMeIMDb-tvOS.release.xcconfig"; path = "Target Support Files/Pods-VisitMeIMDb-tvOS/Pods-VisitMeIMDb-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		D8F0AFD05EEC41EB94D45C40 /* Shabnam-Bold-FD.ttf */ = {isa = PBXFileReference; name = "Shabnam-Bold-FD.ttf"; path = "../src/assets/fonts/Shabnam-Bold-FD.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7A2EFCA600324E9ABBF349AC /* Shabnam-FD.ttf */ = {isa = PBXFileReference; name = "Shabnam-FD.ttf"; path = "../src/assets/fonts/Shabnam-FD.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6CFCDBC8B42C4C5B8F987ED5 /* Shabnam-Light-FD.ttf */ = {isa = PBXFileReference; name = "Shabnam-Light-FD.ttf"; path = "../src/assets/fonts/Shabnam-Light-FD.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				EAEB30F57F31F95570D028EA /* Pods */,
+				2578F0A0AE2F4F5699D1EF49 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -197,6 +204,17 @@
 			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		2578F0A0AE2F4F5699D1EF49 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				D8F0AFD05EEC41EB94D45C40 /* Shabnam-Bold-FD.ttf */,
+				7A2EFCA600324E9ABBF349AC /* Shabnam-FD.ttf */,
+				6CFCDBC8B42C4C5B8F987ED5 /* Shabnam-Light-FD.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -342,6 +360,9 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				4035E1189819426FA0278EB5 /* Shabnam-Bold-FD.ttf in Resources */,
+				A0536ACC4CFC4A47A1B9486A /* Shabnam-FD.ttf in Resources */,
+				98A526BB484F410CAE23CD66 /* Shabnam-Light-FD.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
