@@ -17,7 +17,7 @@ export default Tag;
 // ------------------------------------ Styles ------------------------------------
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: variables.irantic.darkMediumColor,
+    backgroundColor: variables.applicationColor.darkMediumColor,
     paddingHorizontal: 16,
     paddingVertical: 4,
     borderRadius: 4,

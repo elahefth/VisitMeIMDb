@@ -24,9 +24,12 @@ export const searchFetch = (search) => {
 
     IMDbApi.search(search)
       .then((response) => {
-        console.log('vaaaaaaaaaaaaaa')
-        console.log(response.data)
-        dispatch(searchReceive(response.data.Search));
+        let shows = [];
+        if (response.data.Search) {
+          shows = response.data.Search;
+        }
+
+        dispatch(searchReceive(shows));
       })
       .catch((error) => {
         dispatch(searchError(error.response.data));

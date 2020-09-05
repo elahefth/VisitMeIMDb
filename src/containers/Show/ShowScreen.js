@@ -16,16 +16,7 @@ const ShowScreen = (props) => {
   }, []);
 
   const show = useSelector((state) => state.ShowReducer.show);
-  const [view, switchView] = useState('schedule');
   const dispatch = useDispatch();
-
-  console.log('*******************')
-  console.log(show)
-
-
-  const toggleView = () => {
-    view === 'schedule' ? switchView('about') : switchView('schedule');
-  };
 
   return (
     <ScrollView style={styles.container}>
@@ -34,28 +25,12 @@ const ShowScreen = (props) => {
       <View style={{alignItems: 'center'}}>
         <View style={styles.showCard}>
           <View style={{alignItems: 'center'}}>
-            <ShowCard
-              key={show.id}
-              show={show}
-              toggleView={() => toggleView()}
-              activeView={view}
-            />
+            <ShowCard key={show.id} show={show} />
           </View>
 
           <View style={styles.plot}>
-            <H2 style={{color:'#808080'}}>{show.Plot}</H2>
-
+            <H2 style={{color: '#808080'}}>{show.Plot}</H2>
           </View>
-          {/*{view === 'schedule' && (*/}
-          {/*  <View>*/}
-          {/*    <SchedulesView />*/}
-          {/*  </View>*/}
-          {/*)}*/}
-          {/*{view === 'about' && (*/}
-          {/*  <View>*/}
-          {/*    <ShowInfo show={show} />*/}
-          {/*  </View>*/}
-          {/*)}*/}
         </View>
       </View>
     </ScrollView>
@@ -66,8 +41,8 @@ export default ShowScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: variables.irantic.mainBackground,
+    backgroundColor: variables.applicationColor.mainBackground,
   },
   showCard: {marginTop: -(variables.deviceHeight / 9.4)},
-  plot:{padding:20}
+  plot: {padding: 20},
 });

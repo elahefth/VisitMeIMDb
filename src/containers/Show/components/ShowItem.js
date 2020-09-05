@@ -1,22 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   StyleSheet,
   View,
   Dimensions,
-  Image,
   TouchableOpacity,
   Platform,
+  Image,
 } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import {useNavigation} from '@react-navigation/native';
-import {useDispatch, useSelector} from 'react-redux';
 import {H1, H2, variables} from '../../../components/main';
 
 // ------------------------------------ Component ------------------------------------
 const ShowItem = (props) => {
-  const [buttonStatus, changeStatus] = useState('inactive');
-  const dispatch = useDispatch();
-
   const navigation = useNavigation();
   const {show} = props;
   return (
@@ -27,7 +23,7 @@ const ShowItem = (props) => {
       style={styles.container}>
       <View style={styles.main}>
         {!!show.Poster && (
-          <FastImage style={styles.image} source={{uri: show.Poster}} />
+          <Image style={styles.image} source={{uri: show.Poster}} />
         )}
         <View style={styles.view2}>
           <View
@@ -44,29 +40,14 @@ const ShowItem = (props) => {
                 <View style={styles.infoBox}>
                   <H2 style={styles.infoText}>{show.Type}</H2>
                 </View>
-                {/*{show.genres.length > 0 && (*/}
-                {/*  <View style={styles.infoBox2}>*/}
-                {/*    <H2 style={styles.infoText}>{show.genres[0].title}</H2>*/}
-                {/*  </View>*/}
-                {/*)}*/}
 
                 <View style={styles.infoBox3}>
                   <H2 style={styles.infoText}>{show.Year} </H2>
                 </View>
               </View>
             </View>
-            {/*{show.age_range !== null && <AgeLimit age={show.age_range} />}*/}
           </View>
           <View style={styles.rate}>{/*<Rate />*/}</View>
-
-          {/*<View style={styles.button}>*/}
-          {/*  <ScheduleButton*/}
-          {/*    status={buttonStatus}*/}
-          {/*    onPress={() => {*/}
-          {/*      onChange();*/}
-          {/*    }}*/}
-          {/*  />*/}
-          {/*</View>*/}
         </View>
       </View>
     </TouchableOpacity>
@@ -82,7 +63,7 @@ const {width} = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     width: width - 40,
-    backgroundColor: variables.irantic.darkBodyColor,
+    backgroundColor: variables.applicationColor.darkBodyColor,
     borderRadius: 10,
     marginTop: 20,
   },
@@ -117,12 +98,12 @@ const styles = StyleSheet.create({
     paddingRight: 8,
   },
   infoBox2: {
-    borderRightColor: variables.irantic.darkMediumColor,
+    borderRightColor: variables.applicationColor.darkMediumColor,
     borderRightWidth: 1,
     paddingHorizontal: 8,
   },
   infoText: {
-    color: variables.irantic.lightSubtitleColor,
+    color: variables.applicationColor.lightSubtitleColor,
   },
 
   infoBox3: {
@@ -139,9 +120,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   scheduleCard: {
-    backgroundColor: variables.irantic.darkScheduleButtonColor,
+    backgroundColor: variables.applicationColor.darkScheduleButtonColor,
   },
   schedulePrivateCard: {
-    backgroundColor: variables.irantic.darkScheduleButtonColor,
+    backgroundColor: variables.applicationColor.darkScheduleButtonColor,
   },
 });

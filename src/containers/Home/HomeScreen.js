@@ -15,7 +15,14 @@ const Screen = (props) => {
 
   return (
     <View style={styles.screen}>
-      <Text bold style={{color:'#f8f8f8',fontSize:18}}>coming soon</Text>
+      <Text
+        bold
+        style={{
+          color: '#f8f8f8',
+          fontSize: 18,
+        }}>
+        coming soon
+      </Text>
     </View>
   );
 };
@@ -23,10 +30,10 @@ const Screen = (props) => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: variables.irantic.mainBackground,
+    backgroundColor: variables.applicationColor.mainBackground,
     paddingTop: 20,
     alignItems: 'center',
-    justifyContent:'center'
+    justifyContent: 'center',
   },
 });
 

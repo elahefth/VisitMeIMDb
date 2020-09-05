@@ -4,6 +4,6 @@ export default {
   navigation,
 
   user: {
-    name: 'نام',
+    name: 'Name',
   },
 };

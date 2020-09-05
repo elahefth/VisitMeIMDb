@@ -10,11 +10,6 @@ function AppNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/*<Stack.Screen*/}
-        {/*  name="SpecifyAuthentication"*/}
-        {/*  component={SpecifyAuthentication}*/}
-        {/*  options={{headerShown: false}}*/}
-        {/*/>*/}
         <Stack.Screen
           name="Home"
           component={ModalNavigator}

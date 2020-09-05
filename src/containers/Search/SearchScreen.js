@@ -1,89 +1,71 @@
-import React, {useEffect, useState, useCallback} from 'react';
-import {
-  TouchableOpacity,
-  View,
-  StyleSheet,
-  ScrollView,
-  FlatList,
-  SafeAreaView,
-} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, StyleSheet, FlatList, SafeAreaView} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
-import {useNavigation} from '@react-navigation/native';
 
 import * as SearchAction from './SearchAction';
-import variables from '../../components/main/_variables';
+import {variables, H2} from '../../components/main';
 import ShowItem from '../Show/components/ShowItem';
-import {Input} from '../../components/main';
+import Search from './components/Search';
 
-import Search from '././../../assets/svgs/search.svg';
-import H2 from '../../components/main/H2';
+import NoItem from '../../assets/svgs/no_item.svg';
 
 const SearchScreen = (props) => {
-  const [value, onChangeText] = useState('');
-  const navigation = useNavigation();
+  const [searchValue, setSearchValue] = useState('dark');
 
   const {shows} = useSelector((state) => state.SearchReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(SearchAction.searchFetch('dark'));
+    dispatch(SearchAction.searchFetch(searchValue));
   }, []);
 
-  console.log('__________________');
-  console.log(shows);
-
   return (
-    <View style={styles.screen}>
-      {/*<FlatList*/}
-      {/*  data={shows}*/}
-      {/*  keyExtractor={(item) => item.imdbID}*/}
-      {/*  renderItem={(itemData) => (*/}
-      {/*    <ShowItem show={shows} key={itemData.imdbID} />*/}
-      {/*  )}*/}
-      {/*/>*/}
-      <ScrollView>
-        <SafeAreaView />
-        <Input
-          onChangeText={(value) => {
-            onChangeText(value);
-            dispatch(SearchAction.searchFetch(value));
-          }}
-          value={value}
-          placeholder={'Search movie titles'}
-          style={styles.search}
-          icon={
-            <Search
-              width={22}
-              height={22}
-              fill={variables.color.text.placeholder}
-              style={{position: 'absolute', top: 8, left: 10}}
-            />
-          }
-        />
-        {shows.length === 0 && (
-          <View>
-            <H2>no item</H2>
-          </View>
-        )}
+    <View style={styles.container}>
+      <SafeAreaView />
 
-        <FlatList
-          data={shows}
-          keyExtractor={(show) => show.imdbID}
-          renderItem={({item}) => <ShowItem show={item} />}
-        />
+      <Search
+        value={searchValue}
+        onChangeText={(value) => {
+          setSearchValue(value);
+          dispatch(SearchAction.searchFetch(value));
+        }}
+      />
 
-        {/*{!!shows.length && shows.length===0 && <View><H2>no item</H2></View>}*/}
-      </ScrollView>
+      {shows.length === 0 && (
+        <View style={styles.noItem}>
+          <NoItem width={80} height={80} />
+          <H2 bold style={styles.noItemText}>
+            Movie not found!
+          </H2>
+        </View>
+      )}
+
+      <FlatList
+        data={shows}
+        keyExtractor={(show) => show.imdbID}
+        renderItem={({item}) => <ShowItem show={item} />}
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  screen: {
+  container: {
     flex: 1,
-    backgroundColor: variables.irantic.mainBackground,
+    backgroundColor: variables.applicationColor.mainBackground,
     paddingTop: 20,
     alignItems: 'center',
+  },
+  noItem: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+    width: variables.deviceWidth - 40,
+    height: variables.deviceHeight - 100,
+  },
+  noItemText: {
+    marginTop: 20,
+    color: '#676767',
   },
 });
 

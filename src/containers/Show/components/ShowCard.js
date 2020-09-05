@@ -1,21 +1,13 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  Dimensions,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import {StyleSheet, View, Dimensions, Image} from 'react-native';
 
 import {H1, H2, variables} from '../../../components/main';
 import Tag from './Tag';
-// import Rate from '../../../components/irantic/Rate';
 
 // ------------------------------------ Component ------------------------------------
 const ShowCard = (props) => {
   const show = props.show;
-  console.log('?///7777¶77¶7');
-  console.log(show);
+
   return (
     <View style={styles.container}>
       <View style={{flexDirection: 'row'}}>
@@ -34,27 +26,26 @@ const ShowCard = (props) => {
               </H2>
             )}
           </View>
-          {!!show.Language && (
+          {!!show.Country && (
             <H2 style={styles.directors}>
-              Language:
+              Country:
               <H2 style={styles.directors} bold>
-                {show.Language}
+                {show.Country}
               </H2>
             </H2>
           )}
-          <View style={styles.rate}>{/*<Rate />*/}</View>
+          <View style={styles.row}>
+            {show.Rated && <Tag title={show.Rated} />}
+            {show.Runtime && <Tag title={show.Runtime} />}
+          </View>
         </View>
       </View>
       <View style={styles.others}>
-        {/*{show.Released && <Tag title={show.Released} />}*/}
-        {/*<Tag title={show.Runtime} />*/}
         {show.Genre &&
           show.Genre.split(',')
             .slice(0, 3)
-            .map((genre) => <Tag title={genre} />)}
+            .map((genre) => <Tag title={genre} key={genre} />)}
       </View>
-
-
     </View>
   );
 
@@ -68,7 +59,7 @@ const {width} = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     width: width - 40,
-    backgroundColor: variables.irantic.darkBackground,
+    backgroundColor: variables.applicationColor.darkBackground,
     borderRadius: 10,
   },
   image: {
@@ -97,6 +88,11 @@ const styles = StyleSheet.create({
   rate: {
     marginLeft: 16,
     marginTop: 10,
+  },
+  row: {
+    flexDirection: 'row',
+    marginTop: 10,
+    marginLeft: 16,
   },
   others: {
     flexDirection: 'row',

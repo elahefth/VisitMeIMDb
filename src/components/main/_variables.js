@@ -120,7 +120,7 @@ export default {
     7: '#676767',
   },
 
-  irantic: {
+  applicationColor: {
     mainBackground: '#101010',
     darkBackground: '#181818',
     darkBodyColor: '#202020',

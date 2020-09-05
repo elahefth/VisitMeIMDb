@@ -63,7 +63,7 @@ class API {
 
     config.headers = {
       ...headers,
-      'accept-language': store.getState().SettingReducer.language,
+      'accept-language': 'en',
     };
     if (token) {
       config.headers.Authorization = 'Bearer ' + token;

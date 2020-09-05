@@ -8,8 +8,8 @@ import SearchNavigator from './SearchNavigator';
 import variables from '../boot/variables';
 import HomeActive from './../assets/svgs/tabbar_home_active.svg';
 import HomeInactive from './../assets/svgs/tabbar_home.svg';
-import ProfileActive from './../assets/svgs/tabbar_search_active.svg';
-import ProfileInactive from './../assets/svgs/tabbar_search.svg';
+import SearchActive from './../assets/svgs/tabbar_search_active.svg';
+import SearchInactive from './../assets/svgs/tabbar_search.svg';
 
 const Tab = createBottomTabNavigator();
 
@@ -54,9 +54,9 @@ export default function TabNavigator(props) {
           tabBarLabel: i18n.t('navigation.search'),
           tabBarIcon: ({focused}) =>
             focused ? (
-              <ProfileActive width={22} height={22} />
+              <SearchActive width={22} height={22} />
             ) : (
-              <ProfileInactive width={22} height={22} />
+              <SearchInactive width={22} height={22} />
             ),
         }}
       />

@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   base: {
     fontFamily: _variables.fontFamily,
     fontSize: _variables.fontSizeText,
-    color: _variables.irantic.lightTextColor,
+    color: _variables.applicationColor.lightTextColor,
 
     writingDirection: I18nManager.isRTL ? 'rtl' : 'ltr',
 
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         textAlign: 'justify',
       },
       android: {
-        textAlign: I18nManager.isRTL ? 'left' : 'right',
+        textAlign: I18nManager.isRTL ? 'right' : 'left',
       },
     }),
   },
